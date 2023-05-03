@@ -4,8 +4,12 @@ exports.HappySim = void 0;
 var HappySim = /** @class */ (function () {
     function HappySim() {
     }
-    HappySim.prototype.pensamento = function () {
-        console.log("é com essa alegria que eu vou programar hoje :D #Feliz");
+    HappySim.prototype.trabalhar = function () {
+        console.log("Que ótimo dia para trabalhar :). #Trabalhando");
+    };
+    ;
+    HappySim.prototype.mostraEstado = function () {
+        return "feliz";
     };
     ;
     return HappySim;

@@ -4,8 +4,12 @@ exports.SadSim = void 0;
 var SadSim = /** @class */ (function () {
     function SadSim() {
     }
-    SadSim.prototype.pensamento = function () {
-        console.log("O código quebrou :( #Triste");
+    SadSim.prototype.trabalhar = function () {
+        console.log("Não consigo trabalhar...estou triste");
+    };
+    ;
+    SadSim.prototype.mostraEstado = function () {
+        return "triste";
     };
     ;
     return SadSim;

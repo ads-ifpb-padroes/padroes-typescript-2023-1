@@ -1,7 +1,10 @@
-import {IEmotion} from './IEmotion'
+import {IState} from './IState'
 
-export class HappySim implements IEmotion {
-    pensamento(): void{
-      console.log("é com essa alegria que eu vou programar hoje :D #Feliz");
+export class HappySim implements IState {
+    trabalhar(): any{
+      console.log("Que ótimo dia para trabalhar :). #Trabalhando");
     };
-  }
+    mostraEstado(): string{
+        return "feliz";
+      };
+}

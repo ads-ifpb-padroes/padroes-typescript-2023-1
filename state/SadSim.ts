@@ -1,7 +1,10 @@
-import {IEmotion} from './IEmotion'
+import {IState} from './IState'
 
-export class SadSim implements IEmotion {
-    pensamento(): void{
-      console.log("O código quebrou :( #Triste");
+export class SadSim implements IState {
+    trabalhar(): void{
+      console.log("Não consigo trabalhar...estou triste");
     };
+    mostraEstado(): string{
+        return "triste";
+      };
 }

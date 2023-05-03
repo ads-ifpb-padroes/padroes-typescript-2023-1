@@ -1,30 +1,75 @@
-import {IEmotion} from './IEmotion';
-import {HappySim} from './HappySim'
-import {SadSim} from './SadSim'
-import {InspiredSim} from './InspiredSim'
+import {IState} from './IState';
+import {AwakeSim} from './AwakeSim';
+import {SleepySim} from './SleepySim';
+import {HappySim} from './HappySim';
+import {SadSim} from './SadSim';
 
 class Sim {
-  private emotion: IEmotion;
+  private emotion: IState;
+  private happiness: number = 5;
+  public sadness: number = 0;
 
   constructor() {
-    this.emotion = new HappySim;
-  }
+    this.setEmotion(new AwakeSim());
+  };
 
-  setEmotion(emotion: IEmotion): void {
+  setEmotion(emotion: IState): void {
     this.emotion = emotion;
+    console.log(`Seu sim está ${this.emotion.mostraEstado()}`);
+  };
+
+  irTrabalhar(): void {
+    this.emotion.trabalhar();
+    this.sadness += 1;
+    this.happiness -= 1;
+
+    if(this.happiness == 0){
+      this.emotion.mostraEstado();
+    }
+  };
+
+  comer(): void{
+    this.happiness+= 1;
+    this.sadness -= 1;
+
+    console.log("Nham, comida #comendoPraFicarFeliz");
+
+    if(this.sadness == 0){
+      this.setEmotion(new HappySim());
+    }
   }
 
-  pensar(): void {
-    console.log("Pensamento do momento:");
-    this.emotion.pensamento();
+  acordar(): void{
+    console.log("Hmm, muito bom descansar!");
+    this.setEmotion(new AwakeSim());
+  }
+
+  dormir(): void{
+    console.log("Hora de sonhar");
+    this.setEmotion(new SleepySim());
+  }
+
+  mostraEstado(): void{
+    this.emotion.mostraEstado();
   }
 }
 
 const sim = new Sim();
-sim.pensar(); //Pensamento do momento: é com essa alegria que eu vou programar hoje :D #Feliz
-
-sim.setEmotion(new InspiredSim());
-sim.pensar();//Pensamento do momento: Acho que hoje vou criar uma nova linguagem de programação B) #Inspirado
-
-sim.setEmotion(new SadSim());
-sim.pensar();//Pensamento do momento: O código quebrou :( #Triste
+sim.mostraEstado();
+sim.setEmotion(new SleepySim);
+sim.irTrabalhar();
+sim.acordar();
+sim.irTrabalhar();
+sim.irTrabalhar();
+sim.irTrabalhar();
+sim.irTrabalhar();
+sim.irTrabalhar();
+sim.irTrabalhar();
+sim.comer();
+sim.comer();
+sim.comer();
+sim.comer();
+sim.comer();
+sim.comer();
+sim.comer();
+sim.irTrabalhar();
