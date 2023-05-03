@@ -1,6 +1,6 @@
 abstract class Television{
 
-    abstract properties: any;
+    abstract inches: string;
 
     powerOn(){
         return 'Powering on...';
@@ -10,6 +10,9 @@ abstract class Television{
         return 'Powering off...';
     }
 
+    specificPowerOn(){
+        return '';
+    }
     channelUp(){
         return 'Channel Up...';
     }
@@ -20,23 +23,23 @@ abstract class Television{
 }
 
 class Samsung extends Television{
-    properties = {
-        width: '48in',
-        height: '48in'
+        inches = '48 inches';
+        specificPowerOn(){
+            return 'Welcome to the Samsung world';
+        }
     }
-}
 
 class LG extends Television{
-    properties = {
-        width: '28in',
-        height: '28in'
+        inches = '28 inches';
+        specificPowerOn(){
+            return 'Welcome to the LG world';
+        }
     }
-}
 
 const tv = new Samsung();
 
-console.log(tv.powerOn());
+console.log(tv.specificPowerOn());
 console.log(tv.channelUp());
-console.log(tv.properties.width);
+console.log(tv.inches);
 
 
